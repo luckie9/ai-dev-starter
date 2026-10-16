@@ -1,0 +1,21 @@
+# Next.js 16 App Router & Supabase Boilerplate Guidelines
+
+## Tech Stack & Architecture
+- **Framework:** Next.js 16 (App Router) using Server Components (RSC) by default. Use `'use client'` explicitly only when state, browser APIs, or event listeners are required.
+- **Styling:** Tailwind CSS with `tailwind-merge` and `clsx` utilities via `src/lib/utils.ts`.
+- **Database & Auth:** Supabase PostgreSQL with Row Level Security (RLS) enabled on all public tables.
+- **Payments:** Stripe SDK with secure webhook event processing.
+
+## Code Style & Conventions
+- **Imports:** Always use absolute path aliases `@/*` mapping directly to the `src/*` directory.
+- **Language:** TypeScript strict mode. Never use `any`; define explicit interfaces or leverage generated database types from `src/types/database.ts`.
+- **Naming Conventions:**
+  - Components: `PascalCase` (e.g., `PricingTable.tsx`).
+  - Route handlers, utilities, and hooks: `kebab-case` or `camelCase` (e.g., `use-user.ts`, `route.ts`).
+- **Server Actions:** Place server actions close to features or inside a dedicated `actions/` directory. Always validate payloads using Zod before interacting with Supabase or Stripe.
+
+## Security & Performance
+- **Supabase Clients:** 
+  - Use `src/lib/supabase/client.ts` for Client Components.
+  - Use `src/lib/supabase/server.ts` for Server Components, Server Actions, and Route Handlers.
+- **Environment Variables:** Never expose server-only secrets (e.g., `SUPABASE_SERVICE_ROLE_KEY`, `STRIPE_SECRET_KEY`) to the client bundle. Prefix public variables with `NEXT_PUBLIC_`.
