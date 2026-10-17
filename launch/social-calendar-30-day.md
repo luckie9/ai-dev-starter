@@ -28,8 +28,8 @@ You need a stack that ships.
 → Launch path starts here: https://ai-dev-starter-seven.vercel.app
 
 ### Day 5 — Zero-Human-Click
-Zero-Human-Click isn’t a slogan — it’s the workflow: Cursor → Vercel → live.  
-→ See it running: https://ai-dev-starter-seven.vercel.app
+Zero-Human-Click architecture isn't a buzzword. It's automating the boilerplate so you focus on product.  
+→ Test drive the codebase: https://ai-dev-starter-seven.vercel.app
 
 ### Day 6 — Stack flex
 Next.js + Supabase + Stripe, pre-wired for real SaaS.  
