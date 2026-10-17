@@ -1,6 +1,6 @@
 # AI Dev Starter — Launch Announcement Pack
 
-Generated: 2026-10-17T00:32:37.481Z
+Generated: 2026-10-17T08:28:03.537Z
 Repository: https://github.com/luckie9/ai-dev-starter
 Demo: https://ai-dev-starter-seven.vercel.app
 
@@ -16,9 +16,9 @@ Demo: https://ai-dev-starter-seven.vercel.app
 ## Developer directories
 
 **Name:** AI Dev Starter
-**Tagline:** Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.
+**Tagline:** Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes inste…
 
-Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.
+Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.
 
 What you get:
 • Next.js 16 App Router boilerplate with Server Components by default
@@ -28,16 +28,16 @@ What you get:
 • Marketing landing, pricing, and authenticated dashboard shells
 • TypeScript strict mode and Tailwind CSS 4 styling
 
-Stack: Next.js 16 · Supabase · Stripe · Tailwind CSS 4 · TypeScript
+Stack: 
 
 Open source. Clone, configure Supabase + Stripe, and ship.
 
 ## Hacker News (Show HN)
 
-**Title:** Show HN: AI Dev Starter – Next.js 16 App Router boilerplate with Supabase Auth,…
+**Title:** Show HN: AI Dev Starter – Zero-Human-Click boilerplate powered by Cursor and Ve…
 **URL:** https://ai-dev-starter-seven.vercel.app
 
-Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.
+Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.
 
 Features:
 - Next.js 16 App Router boilerplate with Server Components by default
@@ -55,7 +55,7 @@ Looking for feedback from folks building SaaS starters — especially Auth + bil
 
 ### [AI Dev Starter](https://github.com/luckie9/ai-dev-starter)
 
-Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.
+Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.
 
 **Highlights**
 - Next.js 16 App Router boilerplate with Server Components by default
@@ -64,7 +64,7 @@ Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stri
 - Stripe subscription checkout and secure webhook handling
 - Marketing landing, pricing, and authenticated dashboard shells
 
-**Stack:** Next.js 16, Supabase, Stripe, Tailwind CSS 4, TypeScript
+**Stack:** 
 
 [README](https://github.com/luckie9/ai-dev-starter#readme) · [Demo](https://ai-dev-starter-seven.vercel.app)
 

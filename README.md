@@ -1,17 +1,20 @@
 # AI Dev Starter
 
-**Next.js 16 + Supabase + Stripe SaaS boilerplate** for shipping production-ready apps fast.
+Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.
 
-Open-source starter kit with authentication, PostgreSQL Row Level Security, Stripe subscriptions, and a marketing/dashboard UI — built for founders and indie hackers launching AI/SaaS products.
+AI Dev Starter is the ultimate Zero-Human-Click boilerplate powered by Cursor and Vercel. Launch production-ready apps, SaaS tools, and MVPs in minutes instead of weeks. Fully automated development stack designed for high-speed deployment and maximum ROI.
+
+Built on **Next.js 16 + Supabase + Stripe** with authentication, PostgreSQL Row Level Security, subscriptions, and a marketing/dashboard UI — so founders ship product, not plumbing.
 
 > **Ship faster with Pro — $29/month**  
 > Unlock Stripe Checkout wiring, webhook sync, and production billing flows used by the live demo.  
 > **[View Pro pricing →](https://ai-dev-starter-seven.vercel.app/pricing)** · **[Open live sandbox →](https://ai-dev-starter-seven.vercel.app)**
 
-**Keywords:** Next.js boilerplate, Supabase auth, Stripe subscriptions, SaaS starter, App Router, TypeScript, Tailwind CSS, freemium template.
+**Keywords:** Zero-Human-Click, Cursor, Vercel, Next.js boilerplate, Supabase auth, Stripe subscriptions, SaaS starter, App Router, TypeScript, Tailwind CSS, MVP template.
 
 ## Why this SaaS boilerplate?
 
+- **Zero-Human-Click workflow** with Cursor + Vercel for high-speed shipping
 - **Next.js 16 App Router** with Server Components by default
 - **Supabase Auth + Postgres RLS** for secure multi-tenant data
 - **Stripe billing** ready for Checkout + webhook → subscription sync

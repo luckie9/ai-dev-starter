@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T00:32:37.481Z",
+  "generatedAt": "2026-10-17T08:28:03.537Z",
   "meta": {
     "name": "ai-dev-starter",
     "version": "0.1.0",
@@ -8,31 +8,19 @@
   },
   "documentation": {
     "title": "AI Dev Starter",
-    "tagline": "Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.",
-    "stack": [
-      "Next.js 16 (App Router, Server Components)",
-      "Supabase (Auth + Postgres + RLS)",
-      "Stripe (Checkout subscriptions + webhooks)",
-      "Tailwind CSS 4",
-      "TypeScript (strict)"
-    ],
+    "tagline": "Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.",
+    "stack": [],
     "notes": [
       "Auth gating lives in `src/middleware.ts` + `src/lib/supabase/middleware.ts`.",
-      "Stripe webhook writes use the Supabase service role key (bypasses RLS).",
+      "Stripe webhook writes use the Supabase secret / service role key (bypasses RLS).",
       "Attach `supabase_user_id` in Checkout Session `client_reference_id` or `metadata` so subscriptions map to users."
     ],
-    "gettingStarted": "1. **Install dependencies**\n\n```bash\nnpm install\n```\n\n2. **Configure environment**\n\n```bash\ncp .env.example .env.local\n```\n\nFill in your Supabase and Stripe keys.\n\n3. **Apply the database schema**\n\nRun `supabase/migrations/001_initial_schema.sql` in the Supabase SQL Editor (or via the Supabase CLI).\n\n4. **Start the dev server**\n\n```bash\nnpm run dev\n```\n\n5. **Forward Stripe webhooks** (local)\n\n```bash\nstripe listen --forward-to localhost:3000/api/webhooks/stripe\n```\n\nCopy the webhook signing secret into `STRIPE_WEBHOOK_SECRET`.",
+    "gettingStarted": "1. **Install dependencies**\n\n```bash\nnpm install\n```\n\n2. **Configure environment**\n\n```bash\ncp .env.example .env.local\n```\n\nFill in your Supabase and Stripe keys. For Pro billing, set `NEXT_PUBLIC_STRIPE_PRICE_ID` to your `$29/month` price.\n\n3. **Apply the database schema**\n\nRun `supabase/migrations/001_initial_schema.sql` in the Supabase SQL Editor (or via the Supabase CLI).\n\n4. **Start the dev server**\n\n```bash\nnpm run dev\n```\n\n5. **Forward Stripe webhooks** (local)\n\n```bash\nstripe listen --forward-to localhost:3000/api/webhooks/stripe\n```\n\nCopy the webhook signing secret into `STRIPE_WEBHOOK_SECRET`.",
     "projectStructure": "```\nsrc/\n├── app/\n│   ├── (auth)/          # Login & register\n│   ├── (dashboard)/     # Authenticated app shell\n│   ├── (marketing)/     # Landing & pricing\n│   └── api/webhooks/stripe/\n├── components/\n│   ├── ui/\n│   ├── marketing/\n│   └── dashboard/\n├── lib/\n│   ├── supabase/\n│   ├── stripe.ts\n│   └── utils.ts\n└── middleware.ts\n```",
-    "wordCount": 208
+    "wordCount": 614
   },
   "features": {
-    "highlight": [
-      "Next.js 16",
-      "Supabase",
-      "Stripe",
-      "Tailwind CSS 4",
-      "TypeScript"
-    ],
+    "highlight": [],
     "features": [
       "Next.js 16 App Router boilerplate with Server Components by default",
       "Supabase Auth with login, register, and session middleware",
@@ -47,8 +35,8 @@
     "directories": {
       "channel": "developer_directories",
       "name": "AI Dev Starter",
-      "tagline": "Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.",
-      "description": "Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.\n\nWhat you get:\n• Next.js 16 App Router boilerplate with Server Components by default\n• Supabase Auth with login, register, and session middleware\n• PostgreSQL schema with Row Level Security enabled\n• Stripe subscription checkout and secure webhook handling\n• Marketing landing, pricing, and authenticated dashboard shells\n• TypeScript strict mode and Tailwind CSS 4 styling\n\nStack: Next.js 16 · Supabase · Stripe · Tailwind CSS 4 · TypeScript\n\nOpen source. Clone, configure Supabase + Stripe, and ship.",
+      "tagline": "Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes inste…",
+      "description": "Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.\n\nWhat you get:\n• Next.js 16 App Router boilerplate with Server Components by default\n• Supabase Auth with login, register, and session middleware\n• PostgreSQL schema with Row Level Security enabled\n• Stripe subscription checkout and secure webhook handling\n• Marketing landing, pricing, and authenticated dashboard shells\n• TypeScript strict mode and Tailwind CSS 4 styling\n\nStack: \n\nOpen source. Clone, configure Supabase + Stripe, and ship.",
       "topics": [
         "nextjs",
         "supabase",
@@ -63,14 +51,14 @@
         "demo": "https://ai-dev-starter-seven.vercel.app",
         "docs": "https://github.com/luckie9/ai-dev-starter#readme"
       },
-      "oneLiner": "AI Dev Starter: Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing."
+      "oneLiner": "AI Dev Starter: Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks."
     },
     "hackerNews": {
       "channel": "hacker_news",
       "type": "Show HN",
-      "title": "Show HN: AI Dev Starter – Next.js 16 App Router boilerplate with Supabase Auth,…",
+      "title": "Show HN: AI Dev Starter – Zero-Human-Click boilerplate powered by Cursor and Ve…",
       "url": "https://ai-dev-starter-seven.vercel.app",
-      "text": "Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.\n\nFeatures:\n- Next.js 16 App Router boilerplate with Server Components by default\n- Supabase Auth with login, register, and session middleware\n- PostgreSQL schema with Row Level Security enabled\n- Stripe subscription checkout and secure webhook handling\n- Marketing landing, pricing, and authenticated dashboard shells\n\nRepo: https://github.com/luckie9/ai-dev-starter\nDemo: https://ai-dev-starter-seven.vercel.app\n\nLooking for feedback from folks building SaaS starters — especially Auth + billing wiring.",
+      "text": "Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.\n\nFeatures:\n- Next.js 16 App Router boilerplate with Server Components by default\n- Supabase Auth with login, register, and session middleware\n- PostgreSQL schema with Row Level Security enabled\n- Stripe subscription checkout and secure webhook handling\n- Marketing landing, pricing, and authenticated dashboard shells\n\nRepo: https://github.com/luckie9/ai-dev-starter\nDemo: https://ai-dev-starter-seven.vercel.app\n\nLooking for feedback from folks building SaaS starters — especially Auth + billing wiring.",
       "guidelines": [
         "Prefer substance over marketing language",
         "Link the repo or live demo as the submission URL",
@@ -79,8 +67,8 @@
     },
     "githubRoundups": {
       "channel": "github_open_source_roundups",
-      "shortBlurb": "AI Dev Starter — Next.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.",
-      "markdownCard": "### [AI Dev Starter](https://github.com/luckie9/ai-dev-starter)\n\nNext.js 16 App Router boilerplate with Supabase Auth, PostgreSQL (RLS), and Stripe billing.\n\n**Highlights**\n- Next.js 16 App Router boilerplate with Server Components by default\n- Supabase Auth with login, register, and session middleware\n- PostgreSQL schema with Row Level Security enabled\n- Stripe subscription checkout and secure webhook handling\n- Marketing landing, pricing, and authenticated dashboard shells\n\n**Stack:** Next.js 16, Supabase, Stripe, Tailwind CSS 4, TypeScript\n\n[README](https://github.com/luckie9/ai-dev-starter#readme) · [Demo](https://ai-dev-starter-seven.vercel.app)",
+      "shortBlurb": "AI Dev Starter — Zero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.",
+      "markdownCard": "### [AI Dev Starter](https://github.com/luckie9/ai-dev-starter)\n\nZero-Human-Click boilerplate powered by Cursor and Vercel — launch production-ready SaaS apps and MVPs in minutes instead of weeks.\n\n**Highlights**\n- Next.js 16 App Router boilerplate with Server Components by default\n- Supabase Auth with login, register, and session middleware\n- PostgreSQL schema with Row Level Security enabled\n- Stripe subscription checkout and secure webhook handling\n- Marketing landing, pricing, and authenticated dashboard shells\n\n**Stack:** \n\n[README](https://github.com/luckie9/ai-dev-starter#readme) · [Demo](https://ai-dev-starter-seven.vercel.app)",
       "suggestedLabels": [
         "nextjs",
         "supabase",
