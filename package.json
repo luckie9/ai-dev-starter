@@ -13,7 +13,8 @@
     "test:checkout-webhook": "node --env-file=.env.local scripts/test-checkout-webhook.mjs",
     "db:migrate": "node --env-file=.env.local scripts/apply-supabase-migration.mjs",
     "db:migrate:direct": "node --env-file=.env.local scripts/apply-migration-direct.mjs",
-    "publer:sheet": "python3 scripts/build_publer_google_sheet.py"
+    "publer:sheet": "python3 scripts/build_publer_bulk_upload.py",
+    "publer:csv": "python3 scripts/build_publer_bulk_upload.py"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
