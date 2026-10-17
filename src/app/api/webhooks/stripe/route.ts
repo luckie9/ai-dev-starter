@@ -10,7 +10,8 @@ let supabaseAdmin: SupabaseClient<Database> | null = null;
 function getSupabaseAdmin(): SupabaseClient<Database> {
   if (!supabaseAdmin) {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const key =
+      process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
     if (!url || !key) {
       throw new Error('Missing Supabase admin environment variables.');
     }
@@ -34,11 +35,27 @@ function getSubscriptionPeriods(subscription: Stripe.Subscription): {
   current_period_start: string;
   current_period_end: string;
 } {
-  const withPeriods = subscription as Stripe.Subscription & SubscriptionPeriodFields;
-  return {
-    current_period_start: toIsoDate(withPeriods.current_period_start)!,
-    current_period_end: toIsoDate(withPeriods.current_period_end)!,
-  };
+  const withPeriods = subscription as Stripe.Subscription &
+    Partial<SubscriptionPeriodFields>;
+  const item = subscription.items.data[0] as
+    | (Stripe.SubscriptionItem & Partial<SubscriptionPeriodFields>)
+    | undefined;
+
+  const start =
+    withPeriods.current_period_start ?? item?.current_period_start ?? null;
+  const end =
+    withPeriods.current_period_end ?? item?.current_period_end ?? null;
+
+  const current_period_start = toIsoDate(start);
+  const current_period_end = toIsoDate(end);
+
+  if (!current_period_start || !current_period_end) {
+    throw new Error(
+      `Missing subscription period fields on ${subscription.id}`,
+    );
+  }
+
+  return { current_period_start, current_period_end };
 }
 
 async function upsertSubscription(
@@ -104,7 +121,10 @@ export async function POST(req: Request) {
               ? session.subscription
               : session.subscription.id;
 
-          const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+          const subscription = await stripe.subscriptions.retrieve(
+            subscriptionId,
+            { expand: ['items.data.price'] },
+          );
           const userId =
             session.client_reference_id || session.metadata?.supabase_user_id;
 

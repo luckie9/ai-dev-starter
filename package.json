@@ -8,13 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "stripe:create-pro-plan": "node --env-file=.env.local scripts/create-stripe-pro-plan.mjs",
-    "launch:announce": "node scripts/generate-launch-announcement.mjs"
+    "stripe:update-pro-price": "node --env-file=.env.local scripts/update-stripe-pro-price.mjs",
+    "launch:announce": "node scripts/generate-launch-announcement.mjs",
+    "test:checkout-webhook": "node --env-file=.env.local scripts/test-checkout-webhook.mjs",
+    "db:migrate": "node --env-file=.env.local scripts/apply-supabase-migration.mjs",
+    "db:migrate:direct": "node --env-file=.env.local scripts/apply-migration-direct.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.118.0",
     "clsx": "^2.1.1",
     "next": "^16.0.0",
+    "pg": "^8.23.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "stripe": "^18.1.0",
