@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stripe:create-pro-plan": "node --env-file=.env.local scripts/create-stripe-pro-plan.mjs",
+    "launch:announce": "node scripts/generate-launch-announcement.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

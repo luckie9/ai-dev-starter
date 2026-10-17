@@ -1,0 +1,51 @@
+name: Sync Launch Announcement Docs
+
+on:
+  schedule:
+    # Mondays at 09:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-launch-docs
+  cancel-in-progress: true
+
+jobs:
+  sync-launch-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate launch announcement pack
+        env:
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+          DEMO_URL: ${{ vars.DEMO_URL }}
+        run: |
+          export DEMO_URL="${DEMO_URL:-https://ai-dev-starter-seven.vercel.app}"
+          npm run launch:announce
+
+      - name: Commit and push documentation updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add launch/announcement.json launch/announcement.md
+
+          if git diff --staged --quiet; then
+            echo "No launch documentation changes to sync."
+            exit 0
+          fi
+
+          git commit -m "chore: sync weekly launch announcement docs"
+          git push
