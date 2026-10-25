@@ -1,0 +1,28 @@
+name: Supabase Keepalive
+
+on:
+  schedule:
+    # Every 3 days at 08:00 UTC (prevents free-tier auto-pause)
+    - cron: '0 8 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Curl public Supabase endpoint
+        env:
+          SUPABASE_URL: https://apcyquxzpwilwqtfgxjn.supabase.co
+        run: |
+          set -euo pipefail
+          endpoint="${SUPABASE_URL%/}/rest/v1/"
+          echo "Pinging ${endpoint}"
+          # Any completed HTTP response is enough activity to keep the project awake.
+          # 401 without an API key is expected and still counts.
+          code="$(curl -sS -o /tmp/supabase-keepalive.out -w '%{http_code}' \
+            --retry 3 --retry-delay 5 --max-time 30 \
+            -H 'Accept: application/json' \
+            "${endpoint}")"
+          echo "HTTP ${code}"
+          test "${code}" -ge 200 && test "${code}" -lt 500
