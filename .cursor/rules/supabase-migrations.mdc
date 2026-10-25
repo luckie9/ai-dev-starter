@@ -1,0 +1,28 @@
+---
+description: Required privilege grants after every new public-schema CREATE TABLE in Supabase migrations
+globs: supabase/migrations/**/*.sql
+alwaysApply: false
+---
+
+# Supabase migration table grants
+
+Starting October 30, 2026, Supabase requires **explicit table grants** for new tables in the `public` schema. Default privileges are no longer applied automatically.
+
+Whenever you add `CREATE TABLE` in a SQL migration (e.g. `supabase/migrations/`), append these three statements **immediately after** that `CREATE TABLE` (use the real table name):
+
+```sql
+CREATE TABLE public.example (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid()
+);
+
+GRANT SELECT ON public.example TO anon;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.example TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.example TO service_role;
+```
+
+## Rules
+
+- Apply to every new `public` table in the same migration file, right after its `CREATE TABLE`.
+- Do not omit `anon` / `authenticated` / `service_role`, and do not wait for a later migration.
+- Keep RLS enabled and write policies as usual — grants only allow the role to reach the table; RLS still filters rows.
+- Repeat the three `GRANT`s for each new table. Do not grant to `public` as a substitute.

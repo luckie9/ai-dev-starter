@@ -6,6 +6,18 @@
 - **Database & Auth:** Supabase PostgreSQL with Row Level Security (RLS) enabled on all public tables.
 - **Payments:** Stripe SDK with secure webhook event processing.
 
+## Supabase Migrations (required table grants)
+
+Starting October 30, 2026, Supabase no longer grants table privileges implicitly for new tables in the `public` schema. Whenever a SQL migration creates a new public table (typically in `supabase/migrations/`), append these grants **immediately after** the `CREATE TABLE` statement:
+
+```sql
+GRANT SELECT ON public.<table_name> TO anon;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.<table_name> TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.<table_name> TO service_role;
+```
+
+Do not skip, reorder, or fold these into later files. RLS policies still apply on top of these grants.
+
 ## Code Style & Conventions
 - **Imports:** Always use absolute path aliases `@/*` mapping directly to the `src/*` directory.
 - **Language:** TypeScript strict mode. Never use `any`; define explicit interfaces or leverage generated database types from `src/types/database.ts`.
